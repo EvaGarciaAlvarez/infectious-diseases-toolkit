@@ -54,7 +54,7 @@ Common purposes for provenance collection include:
 ### W3C PROV
 [W3C PROV](https://www.w3.org/TR/prov-overview/) is a general purpose standard for provenance information. The standard suggests expression of provenance in terms of entities, activities, agents, and their mutual relations. The standard’s data model is realised in different serialisations, including the [PROV-O ontology](https://www.w3.org/TR/prov-o/), which have been extended for various domains.
 In addition to the [PROV primer](https://www.w3.org/TR/prov-primer/) and the [PROV Book](https://www.provbook.org/) gives a detailed introduction to using PROV.
-There are currently two major implementations for handling the data model: Java implementation ([ProvToolbox](https://github.com/lucmoreau/ProvToolbox)) and Python implementation ([prov library](https://pypi.org/project/prov/)).
+There are currently two major implementations for handling the data model: Java implementation ({% tool "provtoolbox" %}) and Python implementation ({% tool "provpython %}).
 
 ### The Common Provenance Model
 The [Common Provenance Model](https://doi.org/10.1038/s41597-022-01537-6) (CPM) is an extension of W3C PROV that aims to provide advanced support for the integration of provenance information from heterogeneous multi-organizational environments,, where documented objects pass through several organisations. This may include, for instance, a scenario where a sample is acquired and processed in a clinical environment, passed to a biobank for storage, used as an input to generate data (eg, omics or image data) in a laboratory, and these data is later processed in computational infrastructures (e.g. to train AI models). In particular, it provides guidelines for the representation of domain-independent provenance information, to which domain-specific provenance information can be attached in a prescribed way.
@@ -69,13 +69,22 @@ The other parts of the standard series have not been published yet. Anticipated 
 Further information about the standard series and about other parts of the standard series are described in a publication called [Toward a common standard for data and specimen provenance in life sciences](https://doi.org/10.1002/lrh2.10365).
 
 ### RO-Crate
-[RO-Crate](https://www.researchobject.org/ro-crate) is a lightweight implementation of a *FAIR Digital Object*, which is able to pack data together with its metadata into a Research Object. It is based on Linked Data standards including [schema.org](https://schema.org/) and [JSON-LD](https://json-ld.org/), but can be written and consumed as regular JSON.
+{% tool "research-object-crate" %} is a lightweight implementation of a *FAIR Digital Object*, which is able to pack data together with its metadata into a Research Object. It is based on Linked Data standards including {% tool "schema-org" %} and [JSON-LD](https://json-ld.org/), but can be written and consumed as regular JSON.
 The [RO-Crate specifications](https://www.researchobject.org/ro-crate/specification.html) can be used to form different [RO-Crate profiles](https://www.researchobject.org/ro-crate/profiles.html), which are suitable for various domains and use cases. While the base specifications already contain [some guidelines on representing the provenance of data entities](https://www.researchobject.org/ro-crate/1.1/provenance.html#software-used-to-create-files) included in the crate, some contexts require a more detailed description to enhance traceability and reproducibility. To meet this demand, several provenance-oriented RO-Crate profiles are being developed:
 The [Workflow Run RO-Crate working group](https://www.researchobject.org/workflow-run-crate/) is developing a collection of [profiles to describe the execution of computational workflows](https://www.researchobject.org/workflow-run-crate/profiles/). The profiles define provenance descriptions at different granularity levels, from “black box” (only workflow-level inputs, outputs and parameters are considered) to step-by-step rundown.
 
 
 The CPM team, with the help of the RO-Crate community, is developing an RO-Crate profile for representing CPM-compliant provenance and meta-provenance in an RO-Crate. This work is anticipated to serve as a groundwork for part 5 of the ISO 23494 provenance standard series,  *ISO 23494-5 Biotechnology — Provenance information model for biological material and data – Part 5:Provenance of Data Processing.*
-Support for RO-Crate provenance reporting is being added or is planned to be added to several workflow engines, including [Galaxy](https://galaxyproject.org/), [CWL](https://www.commonwl.org/), [Snakemake](https://snakemake.readthedocs.io/en/stable/), [StreamFlow](https://streamflow.di.unito.it/), [Sapporo WES](https://github.com/sapporo-wes/sapporo), [COMPSs](https://compss-doc.readthedocs.io/en/stable/), [WfExS](https://github.com/inab/WfExS-backend).
+Support for RO-Crate provenance reporting is being added or is planned to be added to several workflow engines, including {% tool "galaxy" %}, {% tool "common-workflow-language" %}, {% tool "snakemake" %}, {% tool "streamflow" %}, {% tool "sapporo-wes" %}, {% tool "compss" %}, {% tool "wfexs" %}.
 
 ### Dataverse provenance
 *“The Dataverse Project is an open source web application to share, preserve, cite, explore, and analyze research data”*. Inclusion of provenance information in Dataverse is described on [this webpage](https://guides.dataverse.org/en/5.6/user/dataset-management.html). Dataverse requires JSON format with W3C standards. Provenance capture tools like provR, RDataTracker, NoWorkFlow, recordr, or CamFlow could be used to create this provenance information.
+
+## More relevant tools
+* {% tool "openprovenance" %}: Set of user-friendly web applications for storing, validating, and translating W3C PROV-based provenance representations.
+* {% tool "provenance-storage" %}: A prototype of a provenance management service implementing the CPM (ISO 23494-2).
+* {% tool "provr" %}: Collect meta-data from scripts written in the R programming language.
+* {% tool "rdatatracker" %}: An R library to collect provenance from R scripts.
+* {% tool "noworkflow" %}: The noWorkflow project aims at allowing scientists to benefit from provenance data analysis even when they don't use a workflow system.
+* {% tool "recordr" %}: Provenance tracking for R.
+* {% tool "camflow" %}: CamFlow is a Linux Security Module (LSM) designed to capture data provenance for the purpose of system audit.
